@@ -25,14 +25,16 @@ class MainActivity : AppCompatActivity() {
         val diceRoll = dice.roll()
         // Update the screen with the dice roll
         val diceImage: ImageView = findViewById(R.id.imageView)
-        when (diceRoll) {
-            1 -> diceImage.setImageResource(R.drawable.d1)
-            2 -> diceImage.setImageResource(R.drawable.d2)
-            3 -> diceImage.setImageResource(R.drawable.d3)
-            4 -> diceImage.setImageResource(R.drawable.d4)
-            5 -> diceImage.setImageResource(R.drawable.d5)
-            6 -> diceImage.setImageResource(R.drawable.d6)
+        val drawableResource = when (diceRoll) {
+            1 -> R.drawable.d1
+            2 -> R.drawable.d2
+            3 -> R.drawable.d3
+            4 -> R.drawable.d4
+            5 -> R.drawable.d5
+            else -> R.drawable.d6
         }
+
+        diceImage.setImageResource(drawableResource)
     }
 
     class Dice(private val numSides: Int) {
